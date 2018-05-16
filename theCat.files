@@ -1,0 +1,11 @@
+include/reply.h
+lib/lib4test/test.cpp
+lib/libobjects/IntelligentObject.cpp
+lib/libobjects/include/IntelligentObject.h
+lib/libobjects/include/object.h
+lib/libobjects/include/person.h
+lib/libobjects/object.cpp
+lib/libobjects/person.cpp
+lib/libobjects/test.cpp
+lib/reply.cpp
+test.cpp

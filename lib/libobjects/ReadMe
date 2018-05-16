@@ -1,0 +1,14 @@
+libobjects继承关系
+-object
+	-SysObject	系统对象
+	-RecObject	可被认知对象
+		-IntelligentObject	智能对象
+			-AI	人工智能
+				-Self Cat自身
+			-Person	人类:Animal
+		-Biology	生物
+			-Animal	动物
+				-Person	人类:IntelligentObject
+				
+标注:由于使用了多继承且未虚继承，创建的每个Person对象实际包括两部分，即 IntelligentObject 和 Animal
+	因为实际绝大多数类并不需要多继承，所以虚继承的开销大于少量数据的冗余，故选用了非虚继承的多继承

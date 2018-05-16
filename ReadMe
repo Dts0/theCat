@@ -1,0 +1,11 @@
+已完成C++模块
+-reply
+-objects
+
+
+依赖
+-uuid
+-libmysql++-dev#当前未用
+
+之后会把依赖的包添加到lib里
+ps:因为我使用Qt creator作为主要的IDE,所以根目录下有Qt的配置文件(theCat.config，theCat.creator，theCat.creator.user，theCat.files，theCat.includes)
