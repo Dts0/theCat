@@ -1,1 +1,0 @@
-/home/dts/桌面/到 theCat 的链接/utils/record/record.sh

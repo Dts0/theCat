@@ -16,7 +16,7 @@ bool inline _DB_open(){
 		cout<<"open sqlite database fail"<<sqlite3_errmsg(db)<<endl;
 		return false;
     } else {
-        cout<<"open sqlite database succeed\n";
+        //cout<<"open sqlite database succeed\n";
 		return true;
     }
 }
@@ -26,7 +26,7 @@ bool inline _DB_close(){
 		cout<<"close sqlite database fail,"<<sqlite3_errmsg(db)<<endl;
 		return false;
 	} else {
-		cout<<"close sqlite database succeed\n";
+		//cout<<"close sqlite database succeed\n";
 		return true;
 	}
 }
@@ -42,7 +42,7 @@ bool DB_exec(std::string cmd,callbackFunc _callback){
 	_DB_open();
 	int result = sqlite3_exec(db,cmd.c_str(),_callback,NULL,&database_errmsg);
 	if(SQLITE_OK==result){
-		cout<<"OK,execed\n";
+		//cout<<"OK,execed\n";
 		ret=true;
 	}
 	else {

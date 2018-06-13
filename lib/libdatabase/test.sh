@@ -1,8 +1,8 @@
-g++ test4DB.cpp database.cpp -lsqlite3
+g++ test4DB.c++ database.cpp database_local.cpp  -lsqlite3
 ./a.out
 
 rm a.out
-rm database.db
+rm $CAT_HOME/database/database.db
 
 #the result should be 
 #open sqlite database succeed
