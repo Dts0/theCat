@@ -1,11 +1,18 @@
 已完成C++模块
 -reply
--objects
+-database
+-play&record
+-skills
+-voice&word
 
+-objects#已弃用
 
 依赖
--uuid
--libmysql++-dev#当前未用
+-sqlite3
+-uuid#已弃用
 
 之后会把依赖的包添加到lib里
-ps:因为我使用Qt creator作为主要的IDE,所以根目录下有Qt的配置文件(theCat.config，theCat.creator，theCat.creator.user，theCat.files，theCat.includes)
+ps:当前主要使用vscode作为主要IDE
+因为曾经我使用Qt creator作为主要的IDE,所以根目录下有Qt的配置文件(theCat.config，theCat.creator，theCat.creator.user，theCat.files，theCat.includes)
+
+主要说明文档会在主体部分完成后上传
