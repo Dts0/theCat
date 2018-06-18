@@ -1,56 +1,9 @@
-#include <iostream>
-#include <string>
-#include "reply.h"
-
+#include<iostream>
+#include<stdlib.h>
+#include"skill.h"
 using namespace std;
 
 
-string selfName="cat";
-string masterName="主人";
-
-
-bool inline rule_include(string inputStr,string str){//判断str是否为inputStr的字串
-	return inputStr.find(str)!=string::npos;
-}
-bool inline rule_include_inOrder(string inputStr,string str0,string str1){//判断是否满足str0和str1都是inputStr的字串且str0在str1之前
-	return inputStr.find(str0)!=string::npos && inputStr.find(str1)!=string::npos
-                && inputStr.find(str0)<inputStr.find(str1);
-}
-
-string reply(string inputStr){
-	string r="";
-
-	map<int,skill_t>::iterator iter;
-	for(iter=skills.begin();iter!=skills.end();iter++){
-		if(iter->second.judgeFunc==NULL)
-			continue;
-		if(iter->second.judgeFunc(inputStr)){
-			if(iter->second.execFunc==NULL){
-				r="执行失败,技能"+iter->second.name+"没有执行函数";
-				goto reply_end;
-			} else ;
-			r=iter->second.execFunc(iter->second.numP,iter->second.pList);
-			goto reply_end;
-
-		}
-	}
-
-	reply_end:
-    return r;
-
-}
-
-extern "C" {
-char* c_reply(char* inputStr){//the C type API
-	if(inputStr==NULL)
-		return "需要输入\n";
-	else
-     	return (char*)reply(string(inputStr)).c_str();
-
- }
-}
-
-int _skillId;//extern
 const int MaxSkillId=10000;//extern
 bool noInput_judgeFunc(std::string cmd);
 std::string noInput_execFunc(int numP=0,list<long> pList=list<long>());
@@ -59,6 +12,8 @@ std::string undefined_execFunc(int numP=0,list<long> pList=list<long>());
 bool hello_judgeFunc(std::string cmd);
 std::string hello_execFunc(int numP=0,list<long> pList=list<long>());
 void replyInit(){
+	skillInit();
+
 	skill_t tmp;
 	tmp.name="noInput";
 	tmp.judgeFunc=noInput_judgeFunc;
@@ -84,6 +39,16 @@ void replyInit(){
 	tmp.pList=list<long>();
 	loadSkill(tmp);
 }
+
+
+bool inline rule_include(string inputStr,string str){//判断str是否为inputStr的字串
+	return inputStr.find(str)!=string::npos;
+}
+bool inline rule_include_inOrder(string inputStr,string str0,string str1){//判断是否满足str0和str1都是inputStr的字串且str0在str1之前
+	return inputStr.find(str0)!=string::npos && inputStr.find(str1)!=string::npos
+                && inputStr.find(str0)<inputStr.find(str1);
+}
+
 //接下来是对skill的各个函数定义
 bool noInput_judgeFunc(std::string cmd){
 	return cmd.empty();
@@ -101,5 +66,12 @@ bool hello_judgeFunc(std::string cmd){
 	return rule_include(cmd,"你好");
 }
 std::string hello_execFunc(int numP,list<long> pList){
-	return "你好，"+masterName+"\n";
+	return "你好\n";
+}
+
+
+int main(){
+	replyInit();
+	DB_showSkills();
+	return 0;
 }

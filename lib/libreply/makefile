@@ -5,11 +5,11 @@ CC      = g++
 CFLAGS  = -g -Wall -O0 $(EXT_SO_CC)
 
 TARGET      = ../libreply.so
-INC_PATH    = -I.
-LIB_PATH    = -L..
+INC_PATH    = -I../../include/
+LIB_PATH    = -L../../lib/
 
 EXT_LIB     = #../lib/libreply.a
-EXT_SO		= -L. -lreply -Wl,--rpath=./lib/
+EXT_SO		= -L. -ldatabase -Wl,--rpath=./lib/
 EXT_SO_CC	= -fPIC	#编译动态库时需要额外添加的参数
 
 all:$(TARGET)
@@ -31,3 +31,5 @@ clear:	#只删除中间文件的命令
 .PHONY:clean
 clean:
 	rm -rf $(TARGET) $(OBJS)
+test:
+	./test.sh

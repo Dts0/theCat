@@ -7,7 +7,7 @@ CC      = g++
 CFLAGS  = -g -Wall -O0 $(EXT_SO_CC)
 
 TARGET      = ../libvoice_word.so
-INC_PATH    = -I..
+INC_PATH    = -I.
 LIB_PATH    = -L..
 
 EXT_LIB     = #../lib/libreply.a

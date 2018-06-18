@@ -4,7 +4,7 @@ OBJS    = $(patsubst %.cpp, %.o, $(SRCS))
 CC      = g++
 CFLAGS  = -g -Wall -O0 $(EXT_SO_CC)
 
-TARGET      = ../librecord_play.so
+TARGET      = ../libplay_record.so
 INC_PATH    = -I..
 LIB_PATH    = -L..
 
