@@ -20,6 +20,8 @@ all:
 	(cd lib/libreply;make)
 	(cd lib/libvoice_word;make)
 	(cd lib/libskills;make)
+	(cd lib/libnetwork;make)
+	(cd lib/GBK2UTF-8;make)
 	make $(TARGET)
 
 $(TARGET):$(OBJS)
@@ -42,20 +44,27 @@ clear:
 	(cd lib/libreply;make clear)
 	(cd lib/libvoice_word;make clear)
 	(cd lib/libskills;make clear)
+	(cd lib/libnetwork;make clear)
+	(cd lib/GBK2UTF-8;make clear)
 	rm -rf $(OBJS)
+	rm -rf ./buf/buf.pcm ./buf/result.mp3
 
 .PHONY:clean
 clean:
 	(cd lib/libdatabase;make clean)
 	(cd lib/lib4test;make clean)
-	(cd lib/libobjects;make clean)
+#	(cd lib/libobjects;make clean)
 	(cd lib/libplay_record;make clean)
 	(cd lib/libreply;make clean)
 	(cd lib/libvoice_word;make clean)
 	(cd lib/libskills;make clean)
+	(cd lib/libnetwork;make clean)
+	(cd lib/GBK2UTF-8;make clean)
 	rm -rf $(TARGET) $(OBJS)
+	rm -rf ./buf/buf.pcm ./buf/result.mp3
+
 copy_h:
 	rm -rf include/*.h
-	#cp */*.h include
+#	cp */*.h include
 	cp */*/*.h include -n
 	cp */*/*/*.h include -n

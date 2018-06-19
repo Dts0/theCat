@@ -4,6 +4,8 @@
 -play&record
 -skills
 -voice&word
+-network
+-gbk_utf8
 
 -objects#已弃用
 
@@ -33,4 +35,3 @@ ps:当前主要使用vscode作为主要IDE
 	4.make run	运行
 	5.make test	依次进入各个模块并执行所有的测试
 	6.make copy_h	将各个模块的头文件.h复制到include文件夹,搜寻深度2~3
-	

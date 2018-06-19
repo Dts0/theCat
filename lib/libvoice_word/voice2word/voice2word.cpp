@@ -6,10 +6,7 @@
 using namespace std;
 
 std::string voice2word(std::string filepath){
-	string cmd="mv "+filepath+" ./";
-	if(filepath!="test.pcm")
-		system(cmd.c_str());
-	cmd="python $CAT_HOME/buf/python/voice2word.py";
+	string cmd="python $CAT_HOME/buf/python/voice2word.py "+filepath;
 	system(cmd.c_str());
 	ifstream in("result.txt");
 	ostringstream tmp;
