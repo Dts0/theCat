@@ -11,8 +11,26 @@
 -sqlite3
 -uuid#已弃用
 
+为了能够正常运行,您需要定义环境变量CAT_HOME为该项目的根目录
+
 之后会把依赖的包添加到lib里
 ps:当前主要使用vscode作为主要IDE
 因为曾经我使用Qt creator作为主要的IDE,所以根目录下有Qt的配置文件(theCat.config，theCat.creator，theCat.creator.user，theCat.files，theCat.includes)
 
 主要说明文档会在主体部分完成后上传
+
+#对make命令的介绍
+通用部分:
+	1.make	构建
+	2.make clear	清除所有中间文件
+	3.make clean	清除所有生成文件(包括中间文件.o,动态链接库.so,可执行文件.out)
+	4.make run	运行构建完成的可执行文件,注:对生成文件为动态链接库的模块不适用
+	5.make test	构建并运行测试程序,运行后自动删除
+根目录:
+	1.make	构建整体项目
+	2.make clear	清除所有模块的中间文件
+	3.make clean	清除整个项目中make生成的文件
+	4.make run	运行
+	5.make test	依次进入各个模块并执行所有的测试
+	6.make copy_h	将各个模块的头文件.h复制到include文件夹,搜寻深度2~3
+	
