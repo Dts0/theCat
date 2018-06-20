@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
-#include <stdlib.h>
+#include "stdlib.h"
 #include "reply.h"
 #include"play.h"
 #include"record.h"
 #include"voice2word.h"
 #include"word2voice.h"
+#include "weather.h"
 
 using namespace std;
 
@@ -14,13 +15,14 @@ string selfName="cat";
 string masterName="主人";
 
 
-bool rule_include(string inputStr,string str){//判断str是否为inputStr的字串
+bool inline rule_include(string inputStr,string str){//判断str是否为inputStr的字串
 	return inputStr.find(str)!=string::npos;
 }
-bool rule_include_inOrder(string inputStr,string str0,string str1){//判断是否满足str0和str1都是inputStr的字串且str0在str1之前
+bool inline rule_include_inOrder(string inputStr,string str0,string str1){//判断是否满足str0和str1都是inputStr的字串且str0在str1之前
 	return inputStr.find(str0)!=string::npos && inputStr.find(str1)!=string::npos
                 && inputStr.find(str0)<inputStr.find(str1);
 }
+
 
 string ask(string question,int waitTime,
 				string inputFile,string outputFile){
@@ -88,6 +90,8 @@ bool undefined_judgeFunc(std::string cmd);
 std::string undefined_execFunc(int numP=0,list<long> pList=list<long>());
 bool hello_judgeFunc(std::string cmd);
 std::string hello_execFunc(int numP=0,list<long> pList=list<long>());
+bool exit_judgeFunc(std::string cmd);
+std::string exit_execFunc(int numP=0,list<long> pList=list<long>());
 void replyInit(){
 	skill_t tmp;
 	tmp.name="noInput";
@@ -113,6 +117,22 @@ void replyInit(){
 	tmp.numP=0;
 	tmp.pList=list<long>();
 	loadSkill(tmp);
+
+	tmp.name="exit";
+	tmp.judgeFunc=exit_judgeFunc;
+	tmp.execFunc=exit_execFunc;
+	tmp.introduce="退出";
+	tmp.numP=0;
+	tmp.pList=list<long>();
+	loadSkill(tmp);
+
+	tmp.name="weather";
+	tmp.judgeFunc=weather_judgeFunc;
+	tmp.execFunc=weather_execFunc;
+	tmp.introduce="查天气";
+	tmp.numP=0;
+	tmp.pList=list<long>();
+	loadSkill(tmp);
 }
 //接下来是对skill的各个函数定义
 bool noInput_judgeFunc(std::string cmd){
@@ -132,4 +152,12 @@ bool hello_judgeFunc(std::string cmd){
 }
 std::string hello_execFunc(int numP,list<long> pList){
 	return "你好，"+masterName+"\n";
+}
+bool exit_judgeFunc(std::string cmd){
+	return (rule_include(cmd,"退出")||rule_include(cmd,"关闭"));
+}
+std::string exit_execFunc(int numP,list<long> pList){
+	say("好的，正在退出本程序");
+	exit(0);
+	return "退出";
 }

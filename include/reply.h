@@ -10,6 +10,7 @@ using namespace std;
 bool inline rule_include(string inputStr,string str);
 bool inline rule_include_inOrder(string inputStr,string str0,string str1);
 
+
 string ask(string question,int waitTime=5,
 				string inputFile="./buf/buf.pcm",string outputFile="./buf/result.mp3");//询问并直接获得结果
 string listen(int waitTime=5,string inputFile="./buf/buf.pcm");

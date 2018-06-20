@@ -9,12 +9,11 @@ INC_PATH    = -I$(TOP_DIR)./include/
 LIB_PATH    = -L$(TOP_DIR)./lib/
 
 EXT_LIB     = #./lib/libreply.a					#如果需要使用静态库时修改的参数
-EXT_SO		= -L. -lreply -lskill -lplay_record -ldatabase -lvoice_word -lgbk_utf8 -lnetwork -Wl,--rpath=./lib/	#如果需要使用动态库时修改的参数
+EXT_SO		= -L. -lreply -lskill -lplay_record -ldatabase -lvoice_word -lgbk_utf8 -lnetwork -ljson -Wl,--rpath=./lib/	#如果需要使用动态库时修改的参数
 
 all:
 	(make copy_h)
 	(cd lib/libdatabase;make)
-	(cd lib/lib4test;make)
 #	(cd lib/libobjects;make)
 	(cd lib/libplay_record;make)
 	(cd lib/libreply;make)
@@ -22,6 +21,7 @@ all:
 	(cd lib/libskills;make)
 	(cd lib/libnetwork;make)
 	(cd lib/GBK2UTF-8;make)
+	(cd lib/libjson;make)
 	make $(TARGET)
 
 $(TARGET):$(OBJS)
@@ -38,7 +38,6 @@ run:$(TARGET)
 
 clear:
 	(cd lib/libdatabase;make clear)
-	(cd lib/lib4test;make clear)
 #	(cd lib/libobjects;make clear)
 	(cd lib/libplay_record;make clear)
 	(cd lib/libreply;make clear)
@@ -46,13 +45,13 @@ clear:
 	(cd lib/libskills;make clear)
 	(cd lib/libnetwork;make clear)
 	(cd lib/GBK2UTF-8;make clear)
+	(cd lib/libjson;make clear)
 	rm -rf $(OBJS)
 	rm -rf ./buf/buf.pcm ./buf/result.mp3
 
 .PHONY:clean
 clean:
 	(cd lib/libdatabase;make clean)
-	(cd lib/lib4test;make clean)
 #	(cd lib/libobjects;make clean)
 	(cd lib/libplay_record;make clean)
 	(cd lib/libreply;make clean)
@@ -60,6 +59,7 @@ clean:
 	(cd lib/libskills;make clean)
 	(cd lib/libnetwork;make clean)
 	(cd lib/GBK2UTF-8;make clean)
+	(cd lib/libjson;make clean)
 	rm -rf $(TARGET) $(OBJS)
 	rm -rf ./buf/buf.pcm ./buf/result.mp3
 
@@ -68,3 +68,8 @@ copy_h:
 #	cp */*.h include
 	cp */*/*.h include -n
 	cp */*/*/*.h include -n
+	./delNeedlessH.sh
+	
+	
+	
+

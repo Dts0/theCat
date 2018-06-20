@@ -4,13 +4,13 @@ OBJS    = $(patsubst %.cpp, %.o, $(SRCS))
 CC      = g++
 CFLAGS  = -g -Wall -O0
 
-TARGET      = ../libgbk_utf8.a
+TARGET      = ../libgbk_utf8.so
 INC_PATH    = -I..
 LIB_PATH    = -L..
 
 EXT_LIB     = #../lib/libreply.a
-EXT_SO		= #-L. -lreply -Wl,--rpath=./lib/
-EXT_SO_CC	= #-fPIC
+EXT_SO		= -L.  -Wl,--rpath=./lib/
+EXT_SO_CC	= -fPIC
 
 all:$(TARGET)
 

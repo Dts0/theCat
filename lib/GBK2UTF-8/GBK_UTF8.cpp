@@ -49,12 +49,29 @@ std::string UTF_82GBK(std::string utf8){
         return string(buf);
     return string("err");
 }
-std::string UTF_82GBK_X(std::string utf8){
+std::string UTF_82GBK_X(std::string utf8,bool upper){
     char buf[maxLength];
 	u2g(utf8.c_str(),buf,maxLength);
     char buf2_2[maxLength]="";
 
-	for(unsigned int i=0;i<strlen(buf);i++)
-		sprintf(buf2_2,"%s%%%x%",buf2_2,(buf[i])&0xff);
+	if(upper)
+		for(unsigned int i=0;i<strlen(buf);i++)
+			sprintf(buf2_2,"%s%%%X%",buf2_2,(buf[i])&0xff);
+	else
+		for(unsigned int i=0;i<strlen(buf);i++)
+			sprintf(buf2_2,"%s%%%x%",buf2_2,(buf[i])&0xff);
+	return string(buf2_2);
+}
+std::string GBK2UTF_8_X(std::string gbk,bool upper){
+    char buf[maxLength];
+	g2u(gbk.c_str(),buf,maxLength);
+    char buf2_2[maxLength]="";
+
+	if(upper)
+		for(unsigned int i=0;i<strlen(buf);i++)
+			sprintf(buf2_2,"%s%%%X%",buf2_2,(buf[i])&0xff);
+	else
+		for(unsigned int i=0;i<strlen(buf);i++)
+			sprintf(buf2_2,"%s%%%x%",buf2_2,(buf[i])&0xff);
 	return string(buf2_2);
 }
