@@ -9,7 +9,7 @@ INC_PATH    = -I$(TOP_DIR)./include/
 LIB_PATH    = -L$(TOP_DIR)./lib/
 
 EXT_LIB     = #./lib/libreply.a					#如果需要使用静态库时修改的参数
-EXT_SO		= -L. -lreply -lskill -lplay_record -ldatabase -lvoice_word -Wl,--rpath=./lib/	#如果需要使用动态库时修改的参数
+EXT_SO		= -L. -lreply -lskill -lplay_record -ldatabase -lvoice_word -lgbk_utf8 -lnetwork -Wl,--rpath=./lib/	#如果需要使用动态库时修改的参数
 
 all:
 	(make copy_h)

@@ -5,7 +5,7 @@ CC      = g++
 CFLAGS  = -g -Wall -O0 $(EXT_SO_CC)
 
 TARGET      = ../libskill.so
-INC_PATH    = -I.
+INC_PATH    = -I../../include
 LIB_PATH    = -L..
 
 EXT_LIB     = #../lib/libreply.a

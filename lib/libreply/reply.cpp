@@ -1,6 +1,11 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 #include "reply.h"
+#include"play.h"
+#include"record.h"
+#include"voice2word.h"
+#include"word2voice.h"
 
 using namespace std;
 
@@ -9,12 +14,37 @@ string selfName="cat";
 string masterName="主人";
 
 
-bool inline rule_include(string inputStr,string str){//判断str是否为inputStr的字串
+bool rule_include(string inputStr,string str){//判断str是否为inputStr的字串
 	return inputStr.find(str)!=string::npos;
 }
-bool inline rule_include_inOrder(string inputStr,string str0,string str1){//判断是否满足str0和str1都是inputStr的字串且str0在str1之前
+bool rule_include_inOrder(string inputStr,string str0,string str1){//判断是否满足str0和str1都是inputStr的字串且str0在str1之前
 	return inputStr.find(str0)!=string::npos && inputStr.find(str1)!=string::npos
                 && inputStr.find(str0)<inputStr.find(str1);
+}
+
+string ask(string question,int waitTime,
+				string inputFile,string outputFile){
+					say(question,outputFile);
+					return listen(waitTime,inputFile);
+				}
+string listen(int waitTime,string inputFile){
+	system(("touch "+inputFile).c_str());//创建缓存文件
+
+	cout<<"录音"<<waitTime<<"秒"<<endl;
+	record(waitTime,inputFile);//录音
+	cout<<"正在转语音..."<<endl;
+	string input=voice2word(inputFile);//转语音
+	cout<<"您的输入是:"<<input<<endl;
+	return input;
+}
+
+void say(string str,string outputFile){
+	system(("touch "+outputFile).c_str());
+
+	word2voice(str,outputFile);
+	cout<<"正在将回复转换成语音..."<<endl;
+	play(outputFile);
+	cout<<"本轮回复结束"<<endl;
 }
 
 string reply(string inputStr){
