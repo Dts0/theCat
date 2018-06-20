@@ -6,7 +6,7 @@
 using namespace std;
 
 void word2voice(std::string text,std::string outputfile){
-	ofstream out("reply.txt");
+	ofstream out("./buf/reply.txt");
 	out<<text;
 	out.close();
 	string cmd="python $CAT_HOME/buf/python/word2voice.py "+outputfile;

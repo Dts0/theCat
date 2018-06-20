@@ -47,7 +47,8 @@ clear:
 	(cd lib/GBK2UTF-8;make clear)
 	(cd lib/libjson;make clear)
 	rm -rf $(OBJS)
-	rm -rf ./buf/buf.pcm ./buf/result.mp3
+	rm -rf ./buf/buf.pcm ./buf/result.mp3 ./buf/result.txt ./buf/reply.txt
+	rm -rf ./buf/weather.json
 
 .PHONY:clean
 clean:
@@ -61,7 +62,8 @@ clean:
 	(cd lib/GBK2UTF-8;make clean)
 	(cd lib/libjson;make clean)
 	rm -rf $(TARGET) $(OBJS)
-	rm -rf ./buf/buf.pcm ./buf/result.mp3
+	rm -rf ./buf/buf.pcm ./buf/result.mp3 ./buf/result.txt ./buf/reply.txt
+	rm -rf ./buf/weather.json
 
 copy_h:
 	rm -rf include/*.h
