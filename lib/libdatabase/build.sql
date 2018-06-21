@@ -8,3 +8,8 @@ CREATE TABLE `relation` (
 	`intent`	TEXT NOT NULL,
 	`command`	INTEGER NOT NULL
 );
+CREATE TABLE 'histroy'	(
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`command`	TEXT NOT NULL,
+	`time`	TEXT NOT NULL
+);

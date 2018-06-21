@@ -9,7 +9,7 @@ INC_PATH    = -I$(TOP_DIR)./include/
 LIB_PATH    = -L$(TOP_DIR)./lib/
 
 EXT_LIB     = #./lib/libreply.a					#如果需要使用静态库时修改的参数
-EXT_SO		= -L. -lreply -lskill -lplay_record -ldatabase -lvoice_word -lgbk_utf8 -lnetwork -ljson -Wl,--rpath=./lib/	#如果需要使用动态库时修改的参数
+EXT_SO		= -L. -lreply -lskill -lplay_record -ldatabase -lsqlite3 -lvoice_word -lgbk_utf8 -lnetwork -ljson -Wl,--rpath=./lib/	#如果需要使用动态库时修改的参数
 
 all:
 	(make copy_h)
@@ -23,6 +23,7 @@ all:
 	(cd lib/GBK2UTF-8;make)
 	(cd lib/libjson;make)
 	make $(TARGET)
+	echo"make successfully!"
 
 $(TARGET):$(OBJS)
 	if [ ! -d "bin/" ];then mkdir bin;fi
@@ -49,6 +50,7 @@ clear:
 	rm -rf $(OBJS)
 	rm -rf ./buf/buf.pcm ./buf/result.mp3 ./buf/result.txt ./buf/reply.txt
 	rm -rf ./buf/weather.json
+	rm -rf ./database/*.sql ./database/*.db
 
 .PHONY:clean
 clean:
@@ -64,6 +66,7 @@ clean:
 	rm -rf $(TARGET) $(OBJS)
 	rm -rf ./buf/buf.pcm ./buf/result.mp3 ./buf/result.txt ./buf/reply.txt
 	rm -rf ./buf/weather.json
+	rm -rf ./database/*.sql ./database/*.db
 
 copy_h:
 	rm -rf include/*.h

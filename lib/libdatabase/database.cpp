@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <sqlite3.h>
+#include <sstream>
 #include "database.h"
 
 using namespace std;
@@ -69,4 +70,12 @@ int display_callback(void* para,int columnCount,char** columnValue,char** column
 
 void DB_displayTable(std::string tableName){
 	DB_exec("select * from "+tableName,display_callback);
+}
+void DB_addHistroy(std::string cmd,std::string time){
+	stringstream sbuf;
+	sbuf<<"insert into histroy(command,time) values('"<<cmd<<"','"<<time<<"')";
+	DB_exec(sbuf.str());
+}
+void DB_showHistroys(){
+	DB_displayTable("histroy");
 }

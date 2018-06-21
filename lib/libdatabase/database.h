@@ -13,5 +13,8 @@ void DB_displayTable(std::string tableName);
 void DB_showRelations();
 void DB_insertTestValues(std::string cmdString,std::string intent);
 
+void DB_addHistroy(std::string cmd,std::string time);
+void DB_showHistroys();
+
 int display_callback(void* para,int columnCount,char** columnValue,char** columnName);
 #endif // !DATABASE_H
