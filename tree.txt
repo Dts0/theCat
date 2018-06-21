@@ -1,0 +1,164 @@
+.
+├── bin
+├── buf
+│   └── python
+├── config.sh
+├── database
+│   └── test4database
+│       ├── a.out
+│       ├── insertData.sql
+│       ├── sqlite3.h
+│       └── test.c
+├── delNeedlessH.sh
+├── include
+│   ├── database.h
+│   ├── GBK_UTF8.h
+│   ├── init.h
+│   ├── IntelligentObject.h
+│   ├── json
+│   │   ├── autolink.h
+│   │   ├── config.h
+│   │   ├── features.h
+│   │   ├── forwards.h
+│   │   ├── json.h
+│   │   ├── reader.h
+│   │   ├── value.h
+│   │   └── writer.h
+│   ├── json_batchallocator.h
+│   ├── network.h
+│   ├── object.h
+│   ├── person.h
+│   ├── play.h
+│   ├── record.h
+│   ├── reply.h
+│   ├── skill.h
+│   ├── sqlite3.h
+│   ├── voice2word.h
+│   ├── weather.h
+│   └── word2voice.h
+├── init
+│   ├── init.sh
+│   └── libinit
+│       ├── include
+│       │   ├── init.h
+│       │   ├── IntelligentObject.h
+│       │   ├── object.h
+│       │   └── person.h
+│       ├── init.cpp
+│       └── makefile
+├── lib
+│   ├── GBK2UTF-8
+│   │   ├── GBK_UTF8.cpp
+│   │   ├── GBK_UTF8.h
+│   │   ├── makefile
+│   │   └── test.c++
+│   ├── libdatabase
+│   │   ├── build.sql
+│   │   ├── database.cpp
+│   │   ├── database.h
+│   │   ├── database_local.cpp
+│   │   ├── makefile
+│   │   ├── test4DB.c++
+│   │   └── test.sh
+│   ├── libjson
+│   │   ├── include
+│   │   │   └── json
+│   │   │       ├── autolink.h
+│   │   │       ├── config.h
+│   │   │       ├── features.h
+│   │   │       ├── forwards.h
+│   │   │       ├── json.h
+│   │   │       ├── reader.h
+│   │   │       ├── value.h
+│   │   │       └── writer.h
+│   │   ├── json_batchallocator.h
+│   │   ├── json_internalarray.inl
+│   │   ├── json_internalmap.inl
+│   │   ├── json_reader.cpp
+│   │   ├── json_value.cpp
+│   │   ├── json_valueiterator.inl
+│   │   ├── json_writer.cpp
+│   │   ├── makefile
+│   │   └── sconscript
+│   ├── libnetwork
+│   │   ├── doGet.py
+│   │   ├── makefile
+│   │   ├── network.cpp
+│   │   ├── network.h
+│   │   ├── result.txt
+│   │   ├── test4network.c++
+│   │   └── test.sh
+│   ├── libobjects
+│   │   ├── bin
+│   │   ├── include
+│   │   │   ├── IntelligentObject.h
+│   │   │   ├── object.h
+│   │   │   └── person.h
+│   │   ├── IntelligentObject.cpp
+│   │   ├── makefile
+│   │   ├── makefile_so
+│   │   ├── object.cpp
+│   │   ├── person.cpp
+│   │   ├── ReadMe
+│   │   └── test.c++
+│   ├── libplay_record
+│   │   ├── makefile
+│   │   ├── play
+│   │   │   ├── play.cpp
+│   │   │   ├── play.h
+│   │   │   ├── test4play.c++
+│   │   └── record
+│   │       ├── record.cpp
+│   │       └── record.h
+│   ├── libreply
+│   │   ├── makefile
+│   │   ├── reply.cpp
+│   │   ├── reply.h
+│   │   ├── test4reply.c++
+│   │   └── test.sh
+│   ├── libskills
+│   │   ├── light
+│   │   ├── makefile
+│   │   ├── README
+│   │   ├── skill
+│   │   │   ├── skill.cpp
+│   │   │   └── skill.h
+│   │   ├── test4skill.c++
+│   │   ├── test.sh
+│   │   └── weather
+│   │       ├── weather.cpp
+│   │       └── weather.h
+│   └── libvoice_word
+│       ├── buf
+│       ├── makefile
+│       ├── python
+│       │   ├── voice2word.py
+│       │   └── word2voice.py
+│       ├── voice2word
+│       │   ├── test.c++
+│       │   ├── test.sh
+│       │   ├── voice2word.cpp
+│       │   └── voice2word.h
+│       └── word2voice
+│           ├── test.c++
+│           ├── test.sh
+│           ├── word2voice.cpp
+│           └── word2voice.h
+├── makefile
+├── ReadMe
+├── skills -> /home/dts/desktop/theCat/lib/libskills
+├── test.cpp
+├── thirdPartyTools
+│   ├── aip-python-sdk-2.0.0.zip
+│   ├── asr-linux-cpp-demo.zip
+│   ├── audio-recorder_2.0.2.orig.tar.xz
+│   └── jsoncpp-src-0.5.0.zip
+├── tree.txt
+└── utils
+    ├── DButils -> /home/dts/desktop/theCat/lib/libdatabase
+    ├── GBK2UTF-8_utils -> /home/dts/desktop/theCat/lib/GBK2UTF-8
+    ├── netUtils -> /home/dts/desktop/theCat/lib/libnetwork
+    ├── play_record -> /home/dts/desktop/theCat/lib/libplay_record
+    └── voice_word -> /home/dts/desktop/theCat/lib/libvoice_word
+
+41 directories, 127 files

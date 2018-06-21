@@ -23,7 +23,7 @@ all:
 	(cd lib/GBK2UTF-8;make)
 	(cd lib/libjson;make)
 	make $(TARGET)
-	echo"make successfully!"
+	echo "make successfully!"
 
 $(TARGET):$(OBJS)
 	if [ ! -d "bin/" ];then mkdir bin;fi
