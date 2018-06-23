@@ -50,7 +50,7 @@ clear:
 	rm -rf $(OBJS)
 	rm -rf ./buf/buf.pcm ./buf/result.mp3 ./buf/result.txt ./buf/reply.txt
 	rm -rf ./buf/weather.json
-	rm -rf ./database/*.sql ./database/*.db
+	rm -rf ./database/*.db
 
 .PHONY:clean
 clean:
