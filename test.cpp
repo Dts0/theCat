@@ -29,8 +29,8 @@ int main(int argc,char* argv[]){
 	cin>>waitTime;
 
 	if(waitTime<=0){
-		cout<<"请输入数字"<<endl;
-		goto start;
+		cout<<"已填入默认值5秒"<<endl;
+		waitTime=5;
 	}
 	string input = listen(waitTime,inputFile);
 	string output = reply(input);

@@ -11,8 +11,8 @@
 using namespace std;
 
 
-string selfName="cat";
-string masterName="主人";
+string selfName="凯特猫";
+string masterName="梦";
 
 
 bool inline rule_include(string inputStr,string str){//判断str是否为inputStr的字串
@@ -29,6 +29,7 @@ string ask(string question,int waitTime,
 					say(question,outputFile);
 					return listen(waitTime,inputFile);
 				}
+
 string listen(int waitTime,string inputFile){
 	system(("touch "+inputFile).c_str());//创建缓存文件
 
