@@ -74,7 +74,9 @@ copy_h:
 	cp */*/*.h include -n
 	cp */*/*/*.h include -n
 	./delNeedlessH.sh
-	
-	
-	
 
+
+rebuild:
+	make clean
+	make
+	make run

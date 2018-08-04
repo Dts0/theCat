@@ -93,6 +93,7 @@ bool hello_judgeFunc(std::string cmd);
 std::string hello_execFunc(int numP=0,list<long> pList=list<long>());
 bool exit_judgeFunc(std::string cmd);
 std::string exit_execFunc(int numP=0,list<long> pList=list<long>());
+
 void replyInit(){
 	skill_t tmp;
 	tmp.name="noInput";
@@ -134,6 +135,9 @@ void replyInit(){
 	tmp.numP=0;
 	tmp.pList=list<long>();
 	loadSkill(tmp);
+
+
+
 }
 //接下来是对skill的各个函数定义
 bool noInput_judgeFunc(std::string cmd){

@@ -11,9 +11,33 @@
 #include <time.h>
 
 using namespace std;
+bool display_judgeFunc(std::string cmd);
+std::string display_execFunc(int numP=0,std::list<long> pList=std::list<long>());
+bool display_skill_judgeFunc(std::string cmd);
+std::string display_skill_execFunc(int numP=0,std::list<long> pList=std::list<long>());
+
+
 
 int main(int argc,char* argv[]){
 	replyInit();
+
+	skill_t skill_tmp;
+	skill_tmp.name="display histroy";
+	skill_tmp.judgeFunc=display_judgeFunc;
+	skill_tmp.execFunc=display_execFunc;
+	skill_tmp.introduce="展示历史记录";
+	skill_tmp.numP=0;
+	skill_tmp.pList=list<long>();
+	loadSkill(skill_tmp);
+
+	skill_tmp.name="display skill";
+	skill_tmp.judgeFunc=display_skill_judgeFunc;
+	skill_tmp.execFunc=display_skill_execFunc;
+	skill_tmp.introduce="展示技能列表";
+	skill_tmp.numP=0;
+	skill_tmp.pList=list<long>();
+	loadSkill(skill_tmp);
+
 	skillInit();
 	DB_init();
 	DB_build();
@@ -47,4 +71,20 @@ int main(int argc,char* argv[]){
 	goto start;
 
 	return 0;
+}
+
+
+bool display_judgeFunc(std::string cmd){
+	return rule_include(cmd,"历史记录");
+}
+std::string display_execFunc(int numP,std::list<long> pList){
+	DB_showHistroys();
+	return "好的，已展示历史记录";
+}
+bool display_skill_judgeFunc(std::string cmd){
+	return rule_include(cmd,"你")&&(rule_include(cmd,"能")||rule_include(cmd,"会"))&&rule_include(cmd,"什么");
+}
+std::string display_skill_execFunc(int numP,std::list<long> pList){
+	DB_showSkills();
+	return "好的，这是我能做的事情";
 }
